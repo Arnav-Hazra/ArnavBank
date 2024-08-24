@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnav Bank</title>
+</head>
+<body>
+    <h1>Arnav Bank<h1>
+    <h2>Bank Transaction Form</h2>
+    
+    <!-- Transaction Form -->
+    <form action="/v1/addtransaction" method="post">
+        <fieldset>
+            <legend>Submit Transaction</legend>
+            <label for="account_no">Account Number:</label>
+            <input type="text" id="account_no" name="account_no" required><br>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+
+            <label for="type">Type:</label>
+            <select id="type" name="type" required>
+                <option value="deposit">Deposit</option>
+                <option value="withdraw">Withdraw</option>
+            </select><br>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required><br>
+
+            <input type="submit" value="Submit Transaction">
+        </fieldset>
+    </form>
+
+    <h1>View Transactions</h1>
+
+    <!-- View Transactions Form -->
+    <form action="/v1/gettransaction" method="post">
+        <fieldset>
+            <legend>View All Transactions</legend>
+            <label for="view_account_no">Account Number:</label>
+            <input type="text" id="view_account_no" name="account_no" required><br>
+
+            <input type="submit" value="View Transactions">
+        </fieldset>
+    </form>
+
+    <div id="result"></div>
+
+    <h2>Check Balance</h2>
+    
+    <!-- Balance Check Form -->
+    <form action="/v1/checkbalance" method="post">
+        <fieldset>
+            <legend>Check Account Balance</legend>
+            <label for="balance_account_no">Account Number:</label>
+            <input type="text" id="balance_account_no" name="account_no" required><br>
+
+            <input type="submit" value="Check Balance">
+        </fieldset>
+    </form>
+    <div id="result"></div>
+    <p align='right'>-By Arnav Hazra</p>
+</body>
+</html>
