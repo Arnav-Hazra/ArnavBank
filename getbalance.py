@@ -20,7 +20,7 @@ class GetBalance(tornado.web.RequestHandler):
             <body>
                 <h1>Account Balance</h1>
                 <p><strong>Account Number:</strong> {account_no}</p>
-                <p><strong>Balance:</strong> ₹{balance:.2f}</p>
+                <p><strong>Balance:</strong> Rs: {balance:.2f}</p>
                 <br>
                 <button onclick="window.history.back()">Go Back</button>
             </body>

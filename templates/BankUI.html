@@ -1,65 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arnav Bank</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #003366;
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+
+        h2 {
+            color: #00509e;
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #003366;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        p.align-right {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #666666;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Arnav Bank<h1>
-    <h2>Bank Transaction Form</h2>
-    
-    <!-- Transaction Form -->
-    <form action="/v1/addtransaction" method="post">
-        <fieldset>
-            <legend>Submit Transaction</legend>
-            <label for="account_no">Account Number:</label>
-            <input type="text" id="account_no" name="account_no" required><br>
+    <div class="container">
+        <h1>Arnav Bank</h1>
 
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required><br>
+        <h2>Bank Transaction Form</h2>
 
-            <label for="type">Type:</label>
-            <select id="type" name="type" required>
-                <option value="deposit">Deposit</option>
-                <option value="withdraw">Withdraw</option>
-            </select><br>
+        <!-- Transaction Form -->
+        <form action="/v1/addtransaction" method="post">
+            <fieldset>
+                <legend>Submit Transaction</legend>
+                <label for="account_no">Account Number:</label>
+                <input type="text" id="account_no" name="account_no" placeholder="Enter Account Number" required>
 
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount" name="amount" step="0.01" required><br>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
 
-            <input type="submit" value="Submit Transaction">
-        </fieldset>
-    </form>
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="deposit">Deposit</option>
+                    <option value="withdraw">Withdraw</option>
+                </select>
 
-    <h1>View Transactions</h1>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" step="0.01" placeholder="Enter Amount" required>
 
-    <!-- View Transactions Form -->
-    <form action="/v1/gettransaction" method="post">
-        <fieldset>
-            <legend>View All Transactions</legend>
-            <label for="view_account_no">Account Number:</label>
-            <input type="text" id="view_account_no" name="account_no" required><br>
+                <input type="submit" value="Submit Transaction">
+            </fieldset>
+        </form>
 
-            <input type="submit" value="View Transactions">
-        </fieldset>
-    </form>
+        <h2>View Transactions</h2>
 
-    <div id="result"></div>
+        <!-- View Transactions Form -->
+        <form action="/v1/gettransaction" method="post">
+            <fieldset>
+                <legend>View All Transactions</legend>
+                <label for="view_account_no">Account Number:</label>
+                <input type="text" id="view_account_no" name="account_no" placeholder="Enter Account Number" required>
 
-    <h2>Check Balance</h2>
-    
-    <!-- Balance Check Form -->
-    <form action="/v1/checkbalance" method="post">
-        <fieldset>
-            <legend>Check Account Balance</legend>
-            <label for="balance_account_no">Account Number:</label>
-            <input type="text" id="balance_account_no" name="account_no" required><br>
+                <input type="submit" value="View Transactions">
+            </fieldset>
+        </form>
 
-            <input type="submit" value="Check Balance">
-        </fieldset>
-    </form>
-    <div id="result"></div>
-    <p align='right'>-By Arnav Hazra</p>
+        <h2>Check Balance</h2>
+
+        <!-- Balance Check Form -->
+        <form action="/v1/checkbalance" method="post">
+            <fieldset>
+                <legend>Check Account Balance</legend>
+                <label for="balance_account_no">Account Number:</label>
+                <input type="text" id="balance_account_no" name="account_no" placeholder="Enter Account Number" required>
+
+                <input type="submit" value="Check Balance">
+            </fieldset>
+        </form>
+
+        <div id="result"></div>
+        <p class="align-right">-By Arnav Hazra</p>
+    </div>
 </body>
+
 </html>

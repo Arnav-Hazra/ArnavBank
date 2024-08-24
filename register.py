@@ -38,7 +38,7 @@ class Register:
     def get_Transaction(self, account_no):
         cursor = self.conn.cursor()
         cursor.execute('''
-            SELECT * FROM 'transactions' WHERE account_no = ?
+            SELECT account_no, date, type, amount FROM 'transactions' WHERE account_no = ?
         ''', (account_no,))
         return cursor.fetchall()
     
