@@ -18,7 +18,7 @@ class Register:
                     amount REAL
                 )
             ''')
-            #self.conn.execute('CREATE INDEX IF NOT EXISTS idx_account_no ON transactions (account_no);')
+            self.conn.execute('CREATE INDEX IF NOT EXISTS idx_account_no ON transactions (account_no);')
 
     def add_Transaction(self, account_no, date, type, amount):
         with self.conn:
@@ -58,3 +58,18 @@ class Register:
             print(f"Error occurred while fetching sum for account_no {account_no}: {e}")
             raise e
 
+    def get_Total_Balance(self):
+        try:
+            cursor = self.conn.cursor()
+            cursor.execute('''
+                SELECT SUM(CASE 
+                            WHEN type = 'deposit' THEN amount 
+                            WHEN type = 'withdraw' THEN -amount 
+                            ELSE 0 
+                        END) 
+                FROM transactions
+            ''')
+            return cursor.fetchone()[0] or 0
+        except Exception as e:
+            print(f"Error occurred while fetching total balance: {e}")
+            raise e

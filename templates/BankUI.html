@@ -6,102 +6,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arnav Bank</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f3f4f6;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
+            body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
 
-        h1 {
-            color: #003366;
-            font-size: 2.5em;
-            margin: 20px 0;
-        }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 
-        h2 {
-            color: #00509e;
-            font-size: 1.5em;
-            margin-top: 30px;
-        }
+h1 {
+    color: #003366;
+    font-size: 2.5em;
+    margin: 20px 0;
+}
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+h2 {
+    color: #00509e;
+    font-size: 1.5em;
+    margin-top: 30px;
+}
 
-        form {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 500px;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
 
-        fieldset {
-            border: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
+form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-        legend {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #003366;
-        }
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #333333;
-        }
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #003366;
+}
 
-        input[type="text"],
-        input[type="date"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333333;
+    text-align: left;
+}
 
-        input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
 
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
 
-        #result {
-            margin-top: 20px;
-        }
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
 
-        p.align-right {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #666666;
-        }
+#result {
+    margin-top: 20px;
+}
+
+p.align-right {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #666666;
+}
+
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    input[type="submit"] {
+        padding: 10px;
+        font-size: 1em;
+    }
+}
+
     </style>
 </head>
 
@@ -152,11 +173,9 @@
         <!-- Balance Check Form -->
         <form action="/v1/checkbalance" method="post">
             <fieldset>
-                <legend>Check Account Balance</legend>
-                <label for="balance_account_no">Account Number:</label>
-                <input type="text" id="balance_account_no" name="account_no" placeholder="Enter Account Number" required>
+                <legend>Check Total Balance</legend>
 
-                <input type="submit" value="Check Balance">
+                <input type="submit" value="Check Total Balance">
             </fieldset>
         </form>
 
