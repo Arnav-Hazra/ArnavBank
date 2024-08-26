@@ -1,6 +1,6 @@
 # Arnav Bank
 
-instructions for running Arnav Bank
+Web App using REST API and micro services architecture
 
  -by Arnav Hazra
 
